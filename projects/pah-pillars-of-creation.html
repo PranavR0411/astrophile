@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PAHs in M16 | Pranav R. Iyengar</title>
+<meta name="description" content="Mapping PAH size and ionisation across the Pillars of Creation with JWST, and tracing how radiation from NGC 6611 shapes them.">
+<meta property="og:title" content="PAHs in M16 | Pranav R. Iyengar">
+<meta property="og:description" content="Mapping PAH size and ionisation across the Pillars of Creation with JWST, and tracing how radiation from NGC 6611 shapes them.">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site">
+  <a class="brand" href="../index.html">Pranav R. Iyengar</a>
+  <nav aria-label="Main"><a href="../index.html">About</a><a href="../projects.html" aria-current="page">Projects</a><a href="https://1dc5cee2-0200-487c-bac6-12e827ef05e4.filesusr.com/ugd/db4f79_ed23a3a5a08e4697baf15ea9beb8540b.pdf" target="_blank" rel="noopener">CV</a><a href="../index.html#contact">Contact</a></nav>
+</header>
+<main id="main">
+
+<article class="project">
+  <p class="crumb"><a href="../projects.html">Projects</a></p>
+  <h1>Spatial analysis of PAHs in the Pillars of Creation</h1>
+  <p class="lede">Mapping PAH size and ionisation across the Pillars of Creation with JWST, and tracing how radiation from NGC 6611 shapes them.</p>
+  <dl class="facts">
+    <div><dt>Type</dt><dd>Independent research</dd></div>
+    <div><dt>Dates</dt><dd>Jul 2025 – Oct 2025</dd></div>
+    <div><dt>Where</dt><dd>Self-directed</dd></div>
+    <div><dt>With</dt><dd>Independent project</dd></div>
+    <div><dt>Status</dt><dd>Paper under review at MNRAS</dd></div>
+    <div class="wide"><dt>Data</dt><dd>JWST NIRCam (F090W, F180N, F200W, F335M, F444W, F470N) and MIRI (F770W, F1130W, F1500W)</dd></div>
+    <div class="wide"><dt>Methods</dt><dd>Star masking, PSF matching, continuum subtraction, pixel-by-pixel PAH diagnostics, Monte Carlo errors</dd></div>
+  </dl>
+  
+  <figure class="hero"><img src="https://static.wixstatic.com/media/db4f79_94000dff162a4a49b57fa833d63819ce~mv2.png" alt="JWST view of the Pillars of Creation (M16)"><figcaption>JWST view of the Pillars of Creation (M16)</figcaption></figure>
+  <div class="prose body">
+<p>During the summer break of my master’s I taught myself to work with JWST data, starting with the official JWST workshop: how observations are collected, calibrated and processed through the three data levels, and how to use tools such as Imviz for imaging and Specutils for spectroscopy on real datasets.</p>
+<p>A literature review drew me to polycyclic aromatic hydrocarbons (PAHs): large carbon molecules that trace photodissociation regions and drive much of the chemistry of the interstellar medium. JWST’s MIRI filters are particularly sensitive to PAH emission, making it possible to study their size and ionisation state. Following the method of Maragkoudakis et al., I chose the Pillars of Creation in the Eagle Nebula (M16), an iconic region that surprisingly had no detailed JWST PAH study.</p>
+<blockquote><p>How are PAH molecules distributed within the Pillars of Creation, and what physical conditions shape this distribution?</p></blockquote>
+<p>This independent project grew into a full study; the resulting paper is now under review at MNRAS.</p>
+<h2>Data and preprocessing</h2>
+<p>I used every available JWST image of the Pillars: F090W, F180N, F200W, F335M, F444W and F470N from NIRCam, and F770W, F1130W and F1500W from MIRI. These cover the main PAH features at 3.3, 7.7 and 11.3&nbsp;µm. The images carried heavy stellar contamination, so I masked stars using the supplied segmentation maps, filling each mask with a Gaussian-weighted mean of the surrounding pixels to approximate the underlying nebular flux. Stars missing from the segmentation maps I masked by hand with custom region files.</p>
+<figure><a href="https://static.wixstatic.com/media/db4f79_ae9306348dea4b55bbc95fd5a6fc912f~mv2.png" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/db4f79_ae9306348dea4b55bbc95fd5a6fc912f~mv2.png" alt="Figure 1. F335M image of the Pillars of Creation from JWST NIRCam." loading="lazy"></a><figcaption>Figure 1. F335M image of the Pillars of Creation from JWST NIRCam.</figcaption></figure>
+<p>I then PSF-matched all images to the longest-wavelength filter, F1500W, using Gaussian PSF approximations, so that the maps could be compared pixel by pixel. To isolate the PAH features I subtracted the continuum in each PAH band, interpolating it from filters on the blue and red sides, iterating and inspecting each pass to avoid over-subtraction.</p>
+<h2>PAH size and ionisation</h2>
+<p>Following Maragkoudakis et al. (2020), I derived the ionisation state of every pixel, then used the corresponding relation for each state to estimate PAH size. The mean PAH size is 198&nbsp;±&nbsp;1.22 carbon atoms. A 1000-iteration Monte Carlo simulation, adding random Gaussian noise in each iteration, gave the uncertainty maps.</p>
+<div class="figrow"><figure><a href="https://static.wixstatic.com/media/db4f79_27783bcd4430469abcc3c00ae23c8850~mv2.png" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/db4f79_27783bcd4430469abcc3c00ae23c8850~mv2.png" alt="Figure 2. Ionisation state of PAH molecules." loading="lazy"></a><figcaption>Figure 2. Ionisation state of PAH molecules.</figcaption></figure><figure><a href="https://static.wixstatic.com/media/db4f79_8495dbe52a3b487781678c47ed9fc193~mv2.png" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/db4f79_8495dbe52a3b487781678c47ed9fc193~mv2.png" alt="Figure 3. Size map of PAH molecules." loading="lazy"></a><figcaption>Figure 3. Size map of PAH molecules.</figcaption></figure></div>
+<h2>Results</h2>
+<p>Radial profiles along each pillar let me relate size to ionisation physically rather than only through the empirical calibration of M20. The analysis shows the influence of NGC&nbsp;6611, the cluster of O and B stars above the pillars: molecules closer to the cluster are on average larger and more neutral than those deeper in the nebula. Larger PAHs are more photostable and survive the harsh radiation; their neutrality reflects high electron densities and efficient recombination. I also gave a rough estimate of the electron density in the molecular cloud below the pillars.</p>
+  </div>
+  <nav class="pager" aria-label="More projects"><a href="lbg-population-model.html"><span>Previous</span>Photometric LBG model</a><a class="next" href="radio-transients-cosmos.html"><span>Next</span>Transients in COSMOS</a></nav>
+</article>
+
+</main>
+<footer class="site">
+  <p>© 2026 Pranav R. Iyengar</p>
+  <p><a href="https://www.linkedin.com/in/pranav-r-iyengar-b87a67227" target="_blank" rel="noopener">LinkedIn</a><a href="https://1dc5cee2-0200-487c-bac6-12e827ef05e4.filesusr.com/ugd/db4f79_ed23a3a5a08e4697baf15ea9beb8540b.pdf" target="_blank" rel="noopener">CV (PDF)</a><a href="#" class="js-email" data-u="pranav.iyengar0411" data-d="gmail.com">Email</a></p>
+</footer>
+<script src="../assets/js/site.js"></script>
+</body>
+</html>

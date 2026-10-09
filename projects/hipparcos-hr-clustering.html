@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hipparcos analysis | Pranav R. Iyengar</title>
+<meta name="description" content="Recovering stellar populations from 118,218 Hipparcos stars with DBSCAN, validated against derived temperatures and radii.">
+<meta property="og:title" content="Hipparcos analysis | Pranav R. Iyengar">
+<meta property="og:description" content="Recovering stellar populations from 118,218 Hipparcos stars with DBSCAN, validated against derived temperatures and radii.">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site">
+  <a class="brand" href="../index.html">Pranav R. Iyengar</a>
+  <nav aria-label="Main"><a href="../index.html">About</a><a href="../projects.html" aria-current="page">Projects</a><a href="https://1dc5cee2-0200-487c-bac6-12e827ef05e4.filesusr.com/ugd/db4f79_ed23a3a5a08e4697baf15ea9beb8540b.pdf" target="_blank" rel="noopener">CV</a><a href="../index.html#contact">Contact</a></nav>
+</header>
+<main id="main">
+
+<article class="project">
+  <p class="crumb"><a href="../projects.html">Projects</a></p>
+  <h1>Unsupervised clustering of the Hipparcos H–R diagram</h1>
+  <p class="lede">Recovering stellar populations from 118,218 Hipparcos stars with DBSCAN, validated against derived temperatures and radii.</p>
+  <dl class="facts">
+    <div><dt>Type</dt><dd>Course project</dd></div>
+    <div><dt>Dates</dt><dd>Aug 2022 – Dec 2022</dd></div>
+    <div><dt>Where</dt><dd>IIT Mandi</dd></div>
+    <div><dt>With</dt><dd>Statistical Data Analysis elective</dd></div>
+    <div><dt>Status</dt><dd>Completed</dd></div>
+    <div class="wide"><dt>Data</dt><dd>Hipparcos catalogue, 118,218 stars (ESA)</dd></div>
+    <div class="wide"><dt>Methods</dt><dd>Exploratory statistics, feature selection, DBSCAN clustering</dd></div>
+  </dl>
+  <p class="actions"><a class="btn ghost" href="https://drive.google.com/file/d/1ftCuwUUCmos5YM1McTW9ElPagZSJb_pF/view?usp=sharing" target="_blank" rel="noopener">Read the report (PDF)</a></p>
+  <figure class="hero"><img src="https://static.wixstatic.com/media/db4f79_164f8fb00b094f54abf5becf1d0338fe~mv2.jpg" alt="NGC 3532"><figcaption>NGC 3532</figcaption></figure>
+  <div class="prose body">
+<p>My first independent research came through a project-based elective on statistical data analysis at IIT Mandi. I chose an astronomical dataset, knowing my professor could offer limited support in that area.</p>
+<p>I worked on the 118,218-star Hipparcos catalogue. From the full 2&nbsp;GB ESA dataset I extracted astrometric and photometric parameters (RA, Dec, parallax, proper motions, V<sub>mag</sub>, B–V, V–I) and computed distance from trigonometric parallax, absolute magnitude, luminosity and stellar mass using piecewise mass–luminosity relations. An exploratory analysis of all 77 parameters, including distributions and a full correlation heatmap, identified low-collinearity features for clustering. I then filtered unreliable entries (distance &lt; 100&nbsp;pc, proper motions above noise thresholds, B–V &lt; 2).</p>
+<figure><a href="https://static.wixstatic.com/media/db4f79_8188f09e18e64dd4ac3edaaac30933cb~mv2.png" target="_blank" rel="noopener"><img src="https://static.wixstatic.com/media/db4f79_8188f09e18e64dd4ac3edaaac30933cb~mv2.png" alt="Figure 1. DBSCAN clustering of the Hertzsprung–Russell diagram." loading="lazy"></a><figcaption>Figure 1. DBSCAN clustering of the Hertzsprung–Russell diagram.</figcaption></figure>
+<p>On the H–R diagram (B–V against absolute magnitude) I applied DBSCAN with eps&nbsp;=&nbsp;0.1 and min_samples&nbsp;=&nbsp;100. DBSCAN needs no preset number of clusters and is robust to outliers, which suits unevenly sampled astrophysical data. It found three populations: an elongated main sequence holding about 99% of stars, a distinct red-giant locus, and a sparse group of cool, low-mass stars.</p>
+<p>To validate this physically, I computed effective temperatures from the B–V colour–temperature relation and derived stellar radii. The red-giant cluster has mean temperatures around 4,400&nbsp;K and large radii consistent with the giant branch, while the main-sequence cluster matches expected values for intermediate-mass stars.</p>
+<p>This was my first end-to-end project with a major space-mission dataset, connecting raw astrometry to stellar evolution, and it taught me to find, read and implement methods from the literature largely on my own.</p>
+  </div>
+  <nav class="pager" aria-label="More projects"><a href="nbody-rotation-curves.html"><span>Previous</span>N-body simulation</a><a class="next" href="solar-xray-bursts.html"><span>Next</span>Solar X-ray bursts</a></nav>
+</article>
+
+</main>
+<footer class="site">
+  <p>© 2026 Pranav R. Iyengar</p>
+  <p><a href="https://www.linkedin.com/in/pranav-r-iyengar-b87a67227" target="_blank" rel="noopener">LinkedIn</a><a href="https://1dc5cee2-0200-487c-bac6-12e827ef05e4.filesusr.com/ugd/db4f79_ed23a3a5a08e4697baf15ea9beb8540b.pdf" target="_blank" rel="noopener">CV (PDF)</a><a href="#" class="js-email" data-u="pranav.iyengar0411" data-d="gmail.com">Email</a></p>
+</footer>
+<script src="../assets/js/site.js"></script>
+</body>
+</html>
